@@ -20,15 +20,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'v22'
-      - run: |
-          corepack enable &&
-          corepack install # use the in-repo yarn version
-      - name: Setup Yarn in Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: keycloak/keycloakify/.nvmrc
-          cache-dependency-path: keycloak/keycloakify/yarn.lock
-          cache: "yarn" # uses the system node, which was updated prior.
       - name: Install dependencies
         run: yarn install --immutable
       - name: Build
